@@ -20,6 +20,18 @@ Custom keyboard layout based on the Logitech Swiss German keyboard layout.
 1. Go to **_System Preferences > Keyboard > Text Input > Edit... > [+] > Others_**
 1. Locate the **Custom Swiss German** keyboard layout in the list and add it
 
+#### macOS 27 and Logitech keyboards
+
+On macOS 27, Logitech keyboards connected through a Unifying or Bolt receiver send the `<` key (left of `Y`) and the `§` key (left of `1`) swapped, so `Shift-<` produces `°` instead of `>`. The built-in MacBook keyboard is not affected. Remapping these keys with `hidutil` has no effect on the receivers, and macOS ignores keyboard-type-specific tables in the layout file.
+
+For these keyboards, use [`CustomSwissGermanLogi.keylayout`](macos/CustomSwissGermanLogi.keylayout) instead. It is identical to `CustomSwissGerman.keylayout` except that key codes 10 and 50 are swapped. It has its own name (**Custom Swiss German Logi**) and ID, so both layouts can be installed side by side:
+
+```bash
+sudo cp CustomSwissGermanLogi.* /Library/Keyboard\ Layouts
+```
+
+If you use both a Logitech keyboard and the built-in keyboard, install both layouts and switch between them from the input menu.
+
 ### Windows
 
 ![Windows](https://raw.githubusercontent.com/weibeld-setup/.github/main/badge/windows.svg)
